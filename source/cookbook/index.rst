@@ -1,0 +1,14 @@
+Cookbook
+========
+
+Adding new Bundle to esperanto-cms
+----------------------------------
+
+1) Push to git Repo to github
+2) Add package in packagist
+3) Add Api hook from packagist into github
+4) Add remote URL from git repo to the esperanto-cms repo
+5) add this subtree with remote URL which you added before
+6) pull this repo
+7) push to esperanto-cms
+8) add bundle to esperanto-cms-project and composer.json and push
