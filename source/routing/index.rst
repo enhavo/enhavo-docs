@@ -8,6 +8,6 @@ Routing
     create
     update
     delete
-
+    table
 
 here is the text about routing

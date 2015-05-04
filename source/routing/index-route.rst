@@ -10,17 +10,6 @@ Index Route
                 _controller: app.controller.user:showAction
                 _sylius:
                     template: App:Backend/User:show.html.twig
-                    criteria:
-                        username: $username
-                        enabled:  true
-                    repository:
-                        method: findOneWithFriends
-                        arguments: [$username]
-                    sortable: true
-                    sorting:
-                        score: desc
-                    paginate: 5
-                    limit: 3
                 _admin
                     view:
                         viewer: viewer.index
