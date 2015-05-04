@@ -11,7 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   routing/index
 
+.. include:: /routing/map.rst.inc
 
 Indices and tables
 ==================
