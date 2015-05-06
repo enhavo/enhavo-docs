@@ -18,5 +18,6 @@ Contents
    convention/index
    hook/index
    cookbook/index
+   content-grid/index
 
 
