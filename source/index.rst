@@ -13,6 +13,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   installation/index
    routing/index
    configuration/index
    convention/index
