@@ -5,3 +5,4 @@ Admin
     :hidden:
 
     wysiwyg
+    menu
