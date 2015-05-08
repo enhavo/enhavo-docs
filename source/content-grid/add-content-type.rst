@@ -20,9 +20,9 @@ If you use a non doctrine entity, then you will receive errors while trying to s
 
 .. code-block:: php
 
-    namespace esperanto\ProjectBundle\Entity
+    namespace esperanto\ProjectBundle\Entity;
 
-    use esperanto\ContentBundle\Item\ItemTypeInterface
+    use esperanto\ContentBundle\Item\ItemTypeInterface;
 
     class Youtube implements ItemTypeInterface
     {

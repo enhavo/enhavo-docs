@@ -1,0 +1,7 @@
+Admin
+=====
+
+.. toctree::
+    :hidden:
+
+    wysiwyg

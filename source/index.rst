@@ -20,5 +20,6 @@ Contents
    hook/index
    cookbook/index
    content-grid/index
+   admin/index
 
 
