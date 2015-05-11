@@ -23,11 +23,13 @@ This configuration are available:
 .. _formats: http://www.tinymce.com/wiki.php/Configuration:formats
 .. _style_formats: http://www.tinymce.com/wiki.php/Configuration:style_formats
 .. _toolbarN: http://www.tinymce.com/wiki.php/Configuration:toolbar%3CN%3E
+.. _content_css: http://www.tinymce.com/wiki.php/Configuration:content_css
 
 - height_
 - toolbarN_
 - style_formats_
 - formats_
+- content_css_
 
 .. code-block:: yaml
 
@@ -57,6 +59,24 @@ This configuration are available:
           strikethrough: {inline: 'del'}
           customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
 
+    content_css: ~ #read the text below
+
+**content_css**
+
+For the content_css, we need assets/assetics so you need to use the @ syntax
+
+.. code-block:: yaml
+
+    #multiple files
+    content_css:
+      - '@esperantoProjectBundle/Resources/public/css/styleOne.css'
+      - '@esperantoProjectBundle/Resources/public/css/styleTwo.css'
+
+.. code-block:: yaml
+
+    #single file
+    content_css: '@esperantoProjectBundle/Resources/public/css/styleOne.css'
+
 
 FormType
 --------
@@ -68,6 +88,7 @@ some settings in the FormType option array.
 - **height**: Overwrite the height
 - **toolbar1**: Overwrite the toolbar1
 - **toolbar2**: Overwrite the toolbar2
+- **content_css**: Overwrite the content_css, this could be an array or a string (Use @ Syntax)
 
 .. code-block:: php
 
@@ -76,6 +97,9 @@ some settings in the FormType option array.
         'height' => 300,
         'toolbar1' => '',
         'toolbar2' => ''
+        'content_css' => array(
+            '@esperantoProjectBundle/Resources/public/css/styleOne.css'
+        )
     );
 
 
