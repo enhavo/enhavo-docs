@@ -104,6 +104,11 @@ all we need. Also the contraints, so we use a clean and unique url.
 
     $builder->add('route', 'esperanto_route');
 
+If you render your form manually, you shouln't forget to add it in your template file.
+
+.. code-block:: twig
+
+    {{ form_row(form.route) }}
 
 Controller
 ----------
