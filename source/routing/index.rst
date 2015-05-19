@@ -9,5 +9,6 @@ Routing
     update
     delete
     table
+    dynamic-routing
 
 here is the text about routing
