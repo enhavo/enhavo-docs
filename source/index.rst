@@ -4,11 +4,11 @@
    contain the root `toctree` directive.
 
 Welcome to esperanto-cms documentation!
-=========================================
+=======================================
 
 
 Contents
-==================
+========
 
 .. toctree::
    :maxdepth: 2
@@ -21,5 +21,6 @@ Contents
    cookbook/index
    content-grid/index
    admin/index
+   download-bundle/index
 
 
