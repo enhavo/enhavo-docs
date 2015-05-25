@@ -20,6 +20,8 @@ If you use a non doctrine entity, then you will receive errors while trying to s
 
 .. code-block:: php
 
+    <?php
+
     namespace esperanto\ProjectBundle\Entity;
 
     use esperanto\ContentBundle\Item\ItemTypeInterface;
@@ -58,6 +60,8 @@ A FormType should extend from ``ItemFormType``.
 
 .. code-block:: php
 
+    <?php
+
     namespace esperanto\ProjectBundle\Form\Type;
 
     use esperanto\ContentBundle\Item\ItemFormType;
@@ -86,6 +90,35 @@ A FormType should extend from ``ItemFormType``.
         }
     }
 
+We also need a widget for the rendering. This is very important, cause otherwise
+we have some broken design issue and sending the unnecessary form fields, which
+also will occur errors.
+
+.. code-block:: yaml
+
+    #fields.html.twig
+
+    {% block esperanto_content_item_youtube_widget %}
+    <div class="padding">
+        {{ form_widget(form.url) }}
+    </div>
+        <div class="padding">
+        {{ form_widget(form.title) }}
+    </div>
+        <div class="padding">
+        {{ form_widget(form.author) }}
+    </div>
+    {% endblock %}
+
+If you don't have a ``fields.html.twig``, you need to create one and it to
+the config.
+
+.. code-block:: twig
+
+    twig:
+        form:
+            resources:
+                - 'esperantoProjectBundle:Form:fields.html.twig'
 
 Template
 --------
@@ -110,7 +143,7 @@ Configuration
 Finally you need to add the youtube type to the configuration under the section ``esperanto_content.items``.
 The option ``label`` is optional and is used in the context menu where you can add a new item to your content.
 
-.. code-block:: twig
+.. code-block:: yaml
 
     esperanto_content:
         items:
