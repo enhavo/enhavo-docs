@@ -90,14 +90,11 @@ A FormType should extend from ``ItemFormType``.
         }
     }
 
-We also need a widget for the rendering. This is very important, cause otherwise
-we have some broken design issue and sending the unnecessary form fields, which
-also will occur errors.
+If you want to change the style in your form you have to add a new block in separate twig file.
 
 .. code-block:: yaml
 
     #fields.html.twig
-
     {% block esperanto_content_item_youtube_widget %}
     <div class="padding">
         {{ form_widget(form.url) }}
@@ -110,8 +107,7 @@ also will occur errors.
     </div>
     {% endblock %}
 
-If you don't have a ``fields.html.twig``, you need to create one and it to
-the config.
+And this file, here ``fields.html.twig``, need to be add to the config.
 
 .. code-block:: twig
 
