@@ -1,5 +1,5 @@
-Download Bundle
-===============
+DownloadBundle
+==============
 
 .. toctree::
     :hidden:

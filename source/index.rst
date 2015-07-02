@@ -14,13 +14,12 @@ Contents
    :maxdepth: 2
 
    installation/index
-   routing/index
+   admin-bundle/index
+   content-bundle/index
+   download-bundle/index
    configuration/index
    convention/index
    hook/index
    cookbook/index
-   content-grid/index
-   admin/index
-   download-bundle/index
 
 

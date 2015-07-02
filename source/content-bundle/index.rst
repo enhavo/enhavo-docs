@@ -1,5 +1,5 @@
-Content Grid
-============
+ContentBundle
+=============
 
 .. toctree::
     :hidden:
