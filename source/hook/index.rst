@@ -4,7 +4,7 @@ Hook
 Menu
 ----
 
-To overwrite the menu list you can use the ``esperanto_admin.menu`` hook.
+To overwrite the menu list you can use the ``enhavo_admin.menu`` hook.
 
 .. code-block:: php
 

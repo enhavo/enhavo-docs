@@ -2,7 +2,7 @@ Wysiwyg
 =======
 
 This section explain how you can configure your wysiwyg editor system wide
-and in some special cases. The esperanto-cms use the ``TinyMCE`` editor, if
+and in some special cases. The enhavo use the ``TinyMCE`` editor, if
 you are familiar with its settings you can easily configure it, otherwise
 you should also read the TinyMCE `docs for configuration`_.
 
@@ -69,13 +69,13 @@ For the content_css, we need assets/assetics so you need to use the @ syntax
 
     #multiple files
     content_css:
-      - '@esperantoProjectBundle/Resources/public/css/styleOne.css'
-      - '@esperantoProjectBundle/Resources/public/css/styleTwo.css'
+      - '@enhavoProjectBundle/Resources/public/css/styleOne.css'
+      - '@enhavoProjectBundle/Resources/public/css/styleTwo.css'
 
 .. code-block:: yaml
 
     #single file
-    content_css: '@esperantoProjectBundle/Resources/public/css/styleOne.css'
+    content_css: '@enhavoProjectBundle/Resources/public/css/styleOne.css'
 
 
 FormType
@@ -98,7 +98,7 @@ some settings in the FormType option array.
         'toolbar1' => '',
         'toolbar2' => ''
         'content_css' => array(
-            '@esperantoProjectBundle/Resources/public/css/styleOne.css'
+            '@enhavoProjectBundle/Resources/public/css/styleOne.css'
         )
     );
 

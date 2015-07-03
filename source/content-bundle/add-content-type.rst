@@ -22,9 +22,9 @@ If you use a non doctrine entity, then you will receive errors while trying to s
 
     <?php
 
-    namespace esperanto\ProjectBundle\Entity;
+    namespace enhavo\ProjectBundle\Entity;
 
-    use esperanto\ContentBundle\Item\ItemTypeInterface;
+    use enhavo\ContentBundle\Item\ItemTypeInterface;
 
     class Youtube implements ItemTypeInterface
     {
@@ -62,9 +62,9 @@ A FormType should extend from ``ItemFormType``.
 
     <?php
 
-    namespace esperanto\ProjectBundle\Form\Type;
+    namespace enhavo\ProjectBundle\Form\Type;
 
-    use esperanto\ContentBundle\Item\ItemFormType;
+    use enhavo\ContentBundle\Item\ItemFormType;
     use Symfony\Component\Form\FormBuilderInterface;
     use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -80,13 +80,13 @@ A FormType should extend from ``ItemFormType``.
         public function setDefaultOptions(OptionsResolverInterface $resolver)
         {
             $resolver->setDefaults(array(
-                'data_class' => 'esperanto\ProjectBundle\Entity\Youtube'
+                'data_class' => 'enhavo\ProjectBundle\Entity\Youtube'
             ));
         }
 
         public function getName()
         {
-            return 'esperanto_content_item_youtube';
+            return 'enhavo_content_item_youtube';
         }
     }
 
@@ -95,7 +95,7 @@ If you want to change the style in your form you have to add a new block in sepa
 .. code-block:: yaml
 
     #fields.html.twig
-    {% block esperanto_content_item_youtube_widget %}
+    {% block enhavo_content_item_youtube_widget %}
     <div class="padding">
         {{ form_widget(form.url) }}
     </div>
@@ -114,7 +114,7 @@ And this file, here ``fields.html.twig``, need to be add to the config.
     twig:
         form:
             resources:
-                - 'esperantoProjectBundle:Form:fields.html.twig'
+                - 'enhavoProjectBundle:Form:fields.html.twig'
 
 Template
 --------
@@ -127,7 +127,7 @@ In our case this will be an object from the ``Youtube`` class.
 
 .. code-block:: twig
 
-    {# esperantoProjectBundle:ItemType:youtube.html.twig #}
+    {# enhavoProjectBundle:ItemType:youtube.html.twig #}
 
     <h2>{{ data.title }}<h2>
     <iframe width="560" height="315" src="{{ data.url }}" frameborder="0" allowfullscreen></iframe>
@@ -136,18 +136,18 @@ In our case this will be an object from the ``Youtube`` class.
 Configuration
 -------------
 
-Finally you need to add the youtube type to the configuration under the section ``esperanto_content.items``.
+Finally you need to add the youtube type to the configuration under the section ``enhavo_content.items``.
 The option ``label`` is optional and is used in the context menu where you can add a new item to your content.
 
 .. code-block:: yaml
 
-    esperanto_content:
+    enhavo_content:
         items:
             youtube:
-                model: esperanto\ProjectBundle\Entity\Youtube
-                form: esperanto\ProjectBundle\Form\Type\YoutubeType
-                repository: esperantoProjectBundle:Youtube
-                template: esperantoProjectBundle:ItemType:youtube.html.twig
+                model: enhavo\ProjectBundle\Entity\Youtube
+                form: enhavo\ProjectBundle\Form\Type\YoutubeType
+                repository: enhavoProjectBundle:Youtube
+                template: enhavoProjectBundle:ItemType:youtube.html.twig
                 label: Youtube
 
 

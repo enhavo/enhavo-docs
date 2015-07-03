@@ -6,8 +6,8 @@ Route name
 
 - Don't use camel case, use underscore instead
 
-For example you have a bundle called ``esperantoAppBundle``, and a action
-called ``index`` then you have to name your route like this ``esperanto_app_index``.
+For example you have a bundle called ``enhavoAppBundle``, and a action
+called ``index`` then you have to name your route like this ``enhavo_app_index``.
 A route should contain the following information devide by an underscore:
 
 1) Company name

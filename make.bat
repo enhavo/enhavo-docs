@@ -127,9 +127,9 @@ if "%1" == "qthelp" (
 	echo.
 	echo.Build finished; now you can run "qcollectiongenerator" with the ^
 .qhcp project file in %BUILDDIR%/qthelp, like this:
-	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\esperanto-cms.qhcp
+	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\enhavo.qhcp
 	echo.To view the help file:
-	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\esperanto-cms.ghc
+	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\enhavo.ghc
 	goto end
 )
 

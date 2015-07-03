@@ -1,18 +1,18 @@
 Use in form
 ===========
 
-You add the form type ``esperanto_content`` in your form.
+You add the form type ``enhavo_content`` in your form.
 
 .. code-block:: php
 
-    $builder->add('content', 'esperanto_content');
+    $builder->add('content', 'enhavo_content');
 
 Option Types
 ------------
 
 .. code-block:: php
 
-    $builder->add('content', 'esperanto_content', array(
+    $builder->add('content', 'enhavo_content', array(
         'types' => array(
             array('type' => 'text', 'label' => 'Text'),
             array('type' => 'picture', 'label' => 'Bild'),

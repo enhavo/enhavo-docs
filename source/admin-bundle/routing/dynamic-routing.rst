@@ -18,7 +18,7 @@ to a route. We use yaml for the meta data.
     manyToOne:
         route:
             cascade: ['persist', 'refresh', 'remove']
-            targetEntity: esperanto\AdminBundle\Entity\Route
+            targetEntity: enhavo\AdminBundle\Entity\Route
 
 .. note::
 
@@ -34,12 +34,12 @@ Here is the php source for the meta data.
     <?php
 
     /**
-     * @var \esperanto\AdminBundle\Entity\Route
+     * @var \enhavo\AdminBundle\Entity\Route
      */
     private $route;
 
     /**
-     * @return \esperanto\AdminBundle\Entity\Route
+     * @return \enhavo\AdminBundle\Entity\Route
      */
     public function getRoute()
     {
@@ -47,7 +47,7 @@ Here is the php source for the meta data.
     }
 
     /**
-     * @param \esperanto\AdminBundle\Entity\Route $route
+     * @param \enhavo\AdminBundle\Entity\Route $route
      */
     public function setRoute($route)
     {
@@ -73,17 +73,17 @@ to our service.
 .. code-block:: yaml
 
     parameters:
-        esperanto_page.page.route_content_loader.class: esperanto\AdminBundle\Route\RouteContentLoader
+        enhavo_page.page.route_content_loader.class: enhavo\AdminBundle\Route\RouteContentLoader
 
     services:
-        esperanto_page.page.route_content_loader:
-            class: %esperanto_page.page.route_content_loader.class%
+        enhavo_page.page.route_content_loader:
+            class: %enhavo_page.page.route_content_loader.class%
             arguments:
-                - 'esperanto_page.page'
-                - %esperanto_page.model.page.class%
-                - 'esperanto_page.repository.page'
+                - 'enhavo_page.page'
+                - %enhavo_page.model.page.class%
+                - 'enhavo_page.repository.page'
             tags:
-                - { name: esperanto_route_content_loader }
+                - { name: enhavo_route_content_loader }
 
 .. note::
 
@@ -95,14 +95,14 @@ Form
 ----
 
 To add an url field in our form we just use this simple snippet.
-There is already a form type ``esperanto_route``, which handle
+There is already a form type ``enhavo_route``, which handle
 all we need. Also the contraints, so we use a clean and unique url.
 
 .. code-block:: php
 
     <?php
 
-    $builder->add('route', 'esperanto_route');
+    $builder->add('route', 'enhavo_route');
 
 If you render your form manually, you shouln't forget to add it in your template file.
 
@@ -122,9 +122,9 @@ the class name of our entity and the action which should be called for it.
     cmf_routing:
         dynamic:
             controllers_by_class:
-                esperanto\ProjectBundle\Entity\Page: esperantoProjectBundle:Main:page
+                enhavo\ProjectBundle\Entity\Page: enhavoProjectBundle:Main:page
 
-In our yaml we use ``esperantoProjectBundle:Main:page`` as action, so we also have to add this to
+In our yaml we use ``enhavoProjectBundle:Main:page`` as action, so we also have to add this to
 our Controller.
 
 .. code-block:: php
@@ -133,7 +133,7 @@ our Controller.
 
     public function pageAction(Page $contentDocument)
     {
-        return $this->render('esperantoProjectBundle:Page:page.html.twig', array(
+        return $this->render('enhavoProjectBundle:Page:page.html.twig', array(
             'page' => $contentDocument
         ));
     }

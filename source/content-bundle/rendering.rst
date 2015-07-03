@@ -30,9 +30,9 @@ for an item under this set, then the standard template will be used.
 
 .. code-block:: yaml
 
-    esperanto_content:
+    enhavo_content:
         render:
             sets:
                 page:
-                    picture: esperantoProjectBundle:ItemType:page/picture.html.twig
-                    text: esperantoProjectBundle:ItemType:page/text.html.twig
+                    picture: enhavoProjectBundle:ItemType:page/picture.html.twig
+                    text: enhavoProjectBundle:ItemType:page/text.html.twig

@@ -22,5 +22,5 @@ to CRUD your resource.
 
 .. code-block:: bash
 
-    app/console esperanto:generate:routing app resource
+    app/console enhavo:generate:routing app resource
 

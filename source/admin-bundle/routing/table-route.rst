@@ -3,8 +3,8 @@ Table Route
 
 .. code-block:: yaml
 
-    esperanto_app_table:
-        path: /admin/esperanto/app/resource/index
+    enhavo_app_table:
+        path: /admin/enhavo/app/resource/index
         methods: [GET]
             defaults:
                 _controller: app.controller.user:createAction
@@ -40,4 +40,4 @@ Table Route
                             public:
                                 label: public
                                 property: public
-                                widget: esperantoAdminBundle:Widget:boolean.html.twig
+                                widget: enhavoAdminBundle:Widget:boolean.html.twig
