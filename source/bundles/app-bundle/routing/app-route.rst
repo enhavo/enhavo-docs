@@ -5,7 +5,7 @@ Before you use the app route, you should know what we understand under ``actions
 The app route is responsible to display these to kinds of abstraction. It is fully independent on any
 data model. On this Picture you can see how the app route could render them.
 
-.. image:: ../../_drawio/admin-wireframe.png
+.. image:: ../../../_drawio/admin-wireframe.png
 
 
 Actions

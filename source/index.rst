@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to enhavo documentation!
-=======================================
+================================
 
 
 Contents
@@ -13,13 +13,10 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   installation/index
-   admin-bundle/index
-   content-bundle/index
-   download-bundle/index
-   configuration/index
-   convention/index
-   hook/index
+   book/index
    cookbook/index
+   bundles/index
+   components/index
+   contributing/index
 
 

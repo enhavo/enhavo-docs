@@ -1,5 +1,5 @@
-AdminBundle
-===========
+AppBundle
+=========
 
 .. toctree::
     :hidden:
