@@ -2,7 +2,7 @@ App Route
 =========
 
 Before you use the app route, you should know what we understand under ``actions`` and ``blocks``.
-The app route is responsible to display these to kinds of abstraction. It is fully independent on any
+The app route is responsible two display these to kinds of abstraction. It is fully independent on any
 data model. On this Picture you can see how the app route could render them.
 
 .. image:: ../../../_drawio/admin-wireframe.png
