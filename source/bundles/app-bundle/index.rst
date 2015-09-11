@@ -131,17 +131,17 @@ And last but not least, we add the routing.
         defaults:
             _controller: AcmeLibraryBundle:Book:delete
 
-After this we can now add and receive your book model. As a we developer you should know this way.
+After this we can add and receive the book model. As a developer, it should be easy for you.
 It's a common way, and if we have a hole bunch of models, this will be a hard copy and paste work.
-So this is where the AppBundle want to help. Reduce code and define a standard workflow to CRUD your data.
-This will reduce your
+So this is where the AppBundle wants to help. Reduce code and define a standard workflow to CRUD your data.
+This will reduce your code and make your view clean.
 
 How we do this shorter
 ----------------------
 
-The question is, where can add a standard workflow to reduce duplicated code, without losing flexibility.
-The Answer is, in the controller and the view. So what we do is just leave the part view and controller,
-and instead we add our model to the configuration file and update our routes.
+The question is, where can we add a standard workflow to reduce duplicated code, without losing flexibility.
+The answer is, in the controller and the view. So what we do is just leave the part of the view and controller.
+Instead we add our model to the configuration file and update our routes.
 
 .. code-block:: yaml
 
@@ -174,14 +174,14 @@ and instead we add our model to the configuration file and update our routes.
         defaults:
             _controller: AcmeLibraryBundle:Book:delete
 
-Maybe you ask yourself, why we can't add the routing also dynamically, cause this is
-als copy and paste too? Yes, that's correct. But in the routing we want to add out flexibility.
-There are some bundles, like the SonataAdminBundle, which add the routing also.
+Maybe you ask yourself, why we can't we add the routing dynamically, cause this is
+als a copy and paste work too? Yes, that's correct. But in the routing we want to add our flexibility.
+There're some bundles, like the SonataAdminBundle, which add the routing also.
 But for example, if we don't want a delete route? Or we just want to use a different template or form?
 Then we have to do some have work and extend the controller and overwrite some functions.
 This is what we don't want to do. We want to configure all of these things, and we want to do it
 on a very natured place. And in our opinion, this is the route. So for example, if we want to
-change the form template, we just do something like this.
+change the form template, we just pass this information to the route definition.
 
 .. code-block:: yaml
 
@@ -196,5 +196,5 @@ change the form template, we just do something like this.
                     template: AcmeLibraryBundle:Book:form.html.twig
 
 Of course the route provide much more features and options. This should only give you
-and idea what this bundle wants do and where it can help you doing your work well down.
+an idea what this bundle wants to do and where it can help you doing your work well down.
 The next chapters will give you a deeper understanding what you can do.
