@@ -12,7 +12,7 @@ AppBundle
     menu/index
     form/index
 
-.. include:: /admin-bundle/map.rst.inc
+.. include:: /app-bundle/map.rst.inc
 
 
 What is the AppBundle?

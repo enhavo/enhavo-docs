@@ -9,6 +9,7 @@
 * :doc:`/admin-bundle/form/index`
 
   * :doc:`/admin-bundle/form/wysiwyg`
+  * :doc:`/admin-bundle/form/boolean`
 
 * :doc:`/admin-bundle/routing/index`
 

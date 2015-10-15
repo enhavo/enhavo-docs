@@ -5,3 +5,4 @@ Form
     :hidden:
 
     wysiwyg
+    boolean
