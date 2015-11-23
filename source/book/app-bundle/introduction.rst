@@ -1,19 +1,5 @@
-AppBundle
-=========
-
-.. toctree::
-    :hidden:
-
-    installation/index
-    introduction/index
-    routing/index
-    block/index
-    viewer/index
-    menu/index
-    form/index
-
-.. include:: /app-bundle/map.rst.inc
-
+Introduction
+============
 
 What is the AppBundle?
 ----------------------
@@ -198,3 +184,15 @@ change the form template, we just pass this information to the route definition.
 Of course the route provide much more features and options. This should only give you
 an idea what this bundle wants to do and where it can help you doing your work well down.
 The next chapters will give you a deeper understanding what you can do.
+
+
+How does it work
+----------------
+
+At the beginning we told you the concept of the AppBundle. Now we will go a little bit deeper and
+clean up with some wording.
+
+The Viewer
+----------
+
+

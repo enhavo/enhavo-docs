@@ -11,7 +11,7 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    book/index
    cookbook/index
