@@ -2,6 +2,6 @@ Block
 =====
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     introduction

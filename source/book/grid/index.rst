@@ -2,7 +2,7 @@ GridBundle
 ==========
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     use-in-form
     rendering

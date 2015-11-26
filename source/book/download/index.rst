@@ -2,6 +2,6 @@ DownloadBundle
 ==============
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     download-content-type

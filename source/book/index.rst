@@ -50,9 +50,9 @@ Book
 
 * **Menu**
 
-    * :doc:`/book/menu/menu`
+  * :doc:`/book/menu/menu`
 
 * **Grid**
 
-    * :doc:`/book/grid/rendering`
-    * :doc:`/book/grid/use-in-form`
+  * :doc:`/book/grid/rendering`
+  * :doc:`/book/grid/use-in-form`

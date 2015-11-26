@@ -2,7 +2,7 @@ Routing
 =======
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     app-route
     index-route

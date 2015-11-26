@@ -2,7 +2,7 @@ Form
 ====
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     wysiwyg
     boolean

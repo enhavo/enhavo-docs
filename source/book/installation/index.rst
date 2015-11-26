@@ -2,6 +2,6 @@ Installation
 ============
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     get-started

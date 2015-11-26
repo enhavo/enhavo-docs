@@ -2,6 +2,6 @@ Menu
 ====
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     menu

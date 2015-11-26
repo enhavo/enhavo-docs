@@ -2,6 +2,6 @@ Configuration
 =============
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     app-bundle
