@@ -20,3 +20,8 @@ Cookbook
 
   * :doc:`/cookbook/resource/add-sylius-extension`
   * :doc:`/cookbook/resource/add-new-resource`
+
+* **Contact Form**
+
+  * :doc:`/cookbook/contactForm/add-contact-form`
+  * :doc:`/cookbook/contactForm/add-fields-to-form`
