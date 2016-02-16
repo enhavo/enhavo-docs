@@ -1,33 +1,33 @@
 Index Route
-============
+===========
 
-The index extends from the standard app route, but is bind to resource. The advantage is, that we only need
-a short route definition, but it is as extendable as the app route.
+The index route is an implementation of the standard app route bound to a resource. It contains default settings for
+the standard Enhavo layout of resource views while still being as flexible and extendable as the app route.
 
-Here you can see the minimum route definition:
-
-.. code-block:: yaml
-
-    enhavo_app_resource_index:
-        path: /enhavo/app/resource/index
-        methods: [GET]
-        defaults:
-            _controller: enhavo_reference.controller.reference:indexAction
-            _sylius:
-                template: enhavoAdminBundle:Resource:index.html.twig
-
-This is really short, isn't it? Here you can see the full standard definition, which is made
-automatically by the viewer and controller.
+Here you can see the minimum route definition, which will render the standard Enhavo layout by solely using default
+settings:
 
 .. code-block:: yaml
 
-    enhavo_app_resource_index:
-        path: /enhavo/app/resource/index
+    enhavo_page_page_index:
+        path: /enhavo/page/page/index
         methods: [GET]
         defaults:
-            _controller: enhavo_app.controller.resource:indexAction
+            _controller: enhavo_page.controller.page:indexAction
             _sylius:
-                template: enhavoAdminBundle:Resource:index.html.twig
+                template: EnhavoAppBundle:Resource:index.html.twig
+
+This is really short, isn't it? Here you can see it with all the default values spelled out:
+
+.. code-block:: yaml
+
+    enhavo_page_page_index:
+        path: /enhavo/page/page/index
+        methods: [GET]
+        defaults:
+            _controller: enhavo_page.controller.page:indexAction
+            _sylius:
+                template: EnhavoAppBundle:Resource:index.html.twig
             _viewer:
                 type: index
                 blocks:
@@ -42,7 +42,4 @@ automatically by the viewer and controller.
                         route: enhavo_page_page_create
                         icon: plus
                         label: label.create
-
-
-
 

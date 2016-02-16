@@ -1,6 +1,10 @@
 Create Route
 ============
 
+The create route is being called to render the form for creating a new resource and subsequently to save the form settings.
+
+Here is an example route displaying possible parameters:
+
 .. code-block:: yaml
 
     enhavo_page_page_create:
@@ -11,25 +15,23 @@ Create Route
         defaults:
             _controller: enhavo_page.controller.page:createAction
             _sylius:
-                template: enhavoAdminBundle:Resource:create.html.twig
+                template: EnhavoAppBundle:Resource:create.html.twig
             _viewer:
                 type: create
-                parameters:
-                    param1: value1
-                    param2: value2
+                translationDomain: EnhavoPageBundle
                 tabs:
                     page:
-                        label: page
-                        template: enhavoPageBundle:Tab:page.html.twig
+                        label: page.label.page
+                        template: EnhavoPageBundle:Tab:page.html.twig
                     content:
-                        label: Content
-                        template: enhavoPageBundle:Tab:content.html.twig
+                        label: page.label.content
+                        template: EnhavoPageBundle:Tab:content.html.twig
                     seo:
-                        label: Seo
-                        template: enhavoPageBundle:Tab:seo.html.twig
+                        label: page.label.seo
+                        template: EnhavoPageBundle:Tab:seo.html.twig
                 buttons:
                     cancel:
-                        route:
+                        route: ~
                         display: true
                         role: ~
                         label: label.cancel
@@ -47,6 +49,10 @@ Create Route
                         label: label.preview
                         icon: eye
                 form:
-                    template: enhavoAdminBundle:View:tab.html.twig
+                    template: EnhavoAppBundle:View:tab.html.twig
                     theme: ~
                     action: enhavo_page_page_create
+                sorting:
+                    sortable: false
+                    position: position
+                    initial: max

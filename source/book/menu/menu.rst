@@ -1,8 +1,8 @@
 Menu
 ====
 
-The main menu in the admin is configurable over the ``enhavo_admin.menu``.
-You don't need to add the logout button. It will be added automatically.
+The main menu in the admin backend is configurable via the parameter ``enhavo_admin.menu`` in the configuration file
+app/config/enhavo.yml. The logout button will be added automatically.
 
 .. code-block:: yaml
 
@@ -16,23 +16,25 @@ You don't need to add the logout button. It will be added automatically.
                 label: label.group
                 route: enhavo_user_group_index
                 role: ROLE_ESPERANTO_USER_GROUP_INDEX
+            myresource:
+                label: My Resource
+                route: acme_my_resource_index
+                role: ROLE_MY_RESOURCE_INDEX
 
 Hook
 ----
 
-You can hook the menu with the event ``enhavo_admin.menu`` before it
-will be rendered.
+There is an event called ``enhavo_app.menu`` that you can hook into to modify the menu before it will be rendered.
 
-Note, that by default there is already a hook, which is
-responsible for the logout button, permissions and style. If you
-want to be sure to hook after the default hook, you need to
-increase your order number.
+Note that by default there already is a listener hooked to this event, which is responsible for the logout button,
+permissions and styles. If you want to make sure that your listener is called after this, you need your priority to
+be below 0.
 
 .. code-block:: php
 
-    namespace enhavo\ProjectBundle\EventListener;
+    namespace Acme\FooBundle\EventListener;
 
-    use enhavo\AdminBundle\Menu\MenuEvent;
+    use Enhavo\Bundle\AppBundle\Menu\MenuEvent;
 
     class MenuEventListener
     {
@@ -47,8 +49,8 @@ increase your order number.
 
 .. code-block:: yaml
 
-    enhavo_project.menu_event_listener:
-        class: enhavo\ProjectBundle\EventListener\MenuEventListener
+    acme_foo.menu_event_listener:
+        class: Acme\FooBundle\EventListener\MenuEventListener
         tags:
-          - { name: kernel.event_listener, event: enhavo_admin.menu, method: onMenu  }
+          - { name: kernel.event_listener, event: enhavo_app.menu, method: onMenu, priority: -1 }
 

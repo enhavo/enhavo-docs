@@ -1,45 +1,45 @@
 Dynamic routing
 ===============
 
-It is also possible to use dynamic routing for the entities.
-For the implementation we use the ``SymfonyCMF RoutingBundle``.
-Usually dynamic routing is used in the frontend to have a nice seo url.
-This following example will show you how to add a url field
-to your entity and how you map it to a controller action.
+The ``SymfonyCMF RoutingBundle`` is used to add optional dynamic routing for the resources. Usually dynamic routing
+is used for the front end to have a nice seo url.
+
+This following example will show you how to add a url field to your entity and how you map it to a controller action.
 
 Relation
 --------
 
-First we need to tell our application that an entity has a ``manyToOne`` relation
-to a route. We use yaml for the meta data.
+First we need to tell our application that an entity has a ``manyToOne`` relation to a route. We use yaml
+for the meta data.
 
 .. code-block:: yaml
 
     manyToOne:
         route:
             cascade: ['persist', 'refresh', 'remove']
-            targetEntity: enhavo\AdminBundle\Entity\Route
+            targetEntity: Enhavo\Bundle\AppBundle\Entity\Route
 
 .. note::
 
-    The relation between the entity and route should be ``oneToOne``,
-    but we have some problems with the owning entity in this case,
-    so it is better to use the ``manyToOne`` relation, so the owning side
-    is clear.
+    Logically, the relation between the entity and route should be ``oneToOne``, but we have some problems with the
+    doctrine configuration of the owning entity in this case. When using a ``manyToOne`` relation and only ever using
+    a single entry, the owning side is clear.
 
-Here is the php source for the meta data.
+Here is the php code for the entity class.
 
 .. code-block:: php
 
     <?php
 
+    //...
+
     /**
-     * @var \enhavo\AdminBundle\Entity\Route
+     * @var \Enhavo\Bundle\AppBundle\Entity\Route
      */
     private $route;
 
     /**
-     * @return \enhavo\AdminBundle\Entity\Route
+     * @return \Enhavo\Bundle\AppBundle\Entity\Route
      */
     public function getRoute()
     {
@@ -47,28 +47,24 @@ Here is the php source for the meta data.
     }
 
     /**
-     * @param \enhavo\AdminBundle\Entity\Route $route
+     * @param \Enhavo\Bundle\AppBundle\Entity\Route $route
      */
     public function setRoute($route)
     {
         $this->route = $route;
     }
 
+    //...
+
 
 Service
 -------
 
-Did you wonder why we don`t add relation informations on the route side?
-This is because we have a dynamic relation. The content of a route
-could be any entity. So this is we just save some type information.
-And if a route wants to have his content, we load it on demand.
-For this we need to tell to application some mapping informations.
-These will be done by a service.
+Did you wonder why we don`t need to add relation information to the route configuration? That is because we use a
+dynamic relation. The content of a route could be any entity. So we only save some type information, and when the route
+tries to access its content, it is loaded on demand.
 
-An entity should be configurable by the ``SymfonyCMF RoutingBundle``. If it is
-we have a some parameters and services, added by sylius.
-So that we can configure it one place, we just pass the parameters
-to our service.
+For this to work, we need to give the application some mapping information. This will be done by creating a service.
 
 .. code-block:: yaml
 

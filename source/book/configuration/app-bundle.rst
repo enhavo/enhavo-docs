@@ -1,24 +1,23 @@
 AppBundle
-==========
+=========
+
+Here is an example configuration for the AppBundle done in app/config/enhavo.yml.
 
 .. code-block:: yaml
 
-    enhavo_admin:
+    enhavo_app:
         permission_check: false
         stylesheets:
-            enhavo_app_style:
-                resource: '@enhavoAppBundle/Resource/public/css/style.css'
-                depends: ~
+            - '@EnhavoAppBundle/Resource/public/css/style.css'
         javascripts:
-            enhavo_app_bootstrap:
-                resource: '@enhavoAppBundle/Resource/public/js/bootstrap.css'
-                depends: jquery
+            - '@EnhavoAppBundle/Resource/public/js/bootstrap.css'
         menu:
             homepage:
-                title: Homepage
-                route: enhavo_homepage
+                label: Homepage
+                route: acme_homepage
                 role: HOMEPAGE_ROLE
             download:
-                title: Download
-                route: enhavo_download_index
-                role: DOWNLOAD_ROLE
+                label: label.download
+                route: enhavo_download_download_index
+                role: ROLE_ESPERANTO_DOWNLOAD_DOWNLOAD_INDEX
+

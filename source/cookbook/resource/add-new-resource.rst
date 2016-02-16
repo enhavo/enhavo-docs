@@ -1,8 +1,7 @@
 Add new resource
 ================
 
-If you follow this step, you can add a new resource easily to the cms.
-
+You can easily add a new resource to the CMS by following these steps:
 
 1) Add resource to menu
 2) Generate new routes
@@ -10,12 +9,12 @@ If you follow this step, you can add a new resource easily to the cms.
 4) Add configuration
 5) Create an Entity and FormType
 
-In the following we add an example resource called project.
+As an example, we will be adding a resource called project.
 
 Add resource to menu
 --------------------
 
-Add the new resource to the menu in ``enhavo.yml``
+First we add the new resource to the menu in ``app/config/enhavo.yml``
 
 .. code-block:: yml
 
@@ -33,6 +32,14 @@ Now generate all the routes you need for the new resource.
 .. code-block:: bash
 
     app/console enhavo:generate:routing acme_project project
+
+If you want your resource to be sortable by the user, you can use the optional parameter "sorting" to additionally
+generate sorting behaviour. The value of the parameter is a property type integer in your resource entity to save the
+items position. In this example it is called ``order``.
+
+.. code-block:: bash
+
+    app/console enhavo:generate:routing acme_project project --sorting="order"
 
 Create a new file called ``project.yml`` in ``ProjectBundle/Resources/config/routing``.
 Copy the routes from the terminal into it.
@@ -107,7 +114,8 @@ or you add the resource to the ``Configuration.php`` in ``ProjectBundle/Dependen
             ->end()
         ;
 
-Remember that the ``acmeProjectExtenstion.php`` has to extend the ``SyliusResourceExtension``, otherwise the services are not working.
+If you use the second option, the file ``ProjectBundle/DependencyInjection\AcmeProjectExtenstion.php`` has to extend
+``SyliusResourceExtension``, otherwise the services won't work.
 
 Create an Entity and FormType
 -----------------------------

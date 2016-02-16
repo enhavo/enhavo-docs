@@ -1,14 +1,12 @@
 Rendering
 =========
 
-Now you want to render your content? This is a very easy task.
-Just use the twig function ``content_render``. This function has got
-two parameter. The first one is the content data, which you should pass
-to the template. The second one is optional and is used to render a
-different template set. For further information read the section ``Render sets``
+To render the content in the frontend, you can use the twig function ``content_render``. This function has
+two parameters. The first one is the content object. The second one is optional and is used to render a
+different template set. For further information read the section ``Render sets`` below.
 
-If you use the ``content_render`` with one parameter, then the template
-for the item is rendered which is defined in your configuration.
+If you use ``content_render`` with one parameter, it will render the default template for the item which is defined
+in your configuration in app/config/enhavo.yml.
 
 .. code-block:: twig
 
@@ -21,12 +19,11 @@ for the item is rendered which is defined in your configuration.
 Render sets
 -----------
 
-If you are in the situation that you have two render to different templates for the same item type
-in your application, then the render sets will help you to implement this.
+If you want to render two different templates for the same item type in your application, then you can use render sets.
 
-In your configuration you can define a render set. Here we call it ``page``.
-Now we can define for each item a new template. If you don't define a template
-for an item under this set, then the standard template will be used.
+In the configuration in app/config/enhavo.yml you can define render sets. In this example, we defined one called
+``page``. Now we can define a new template for each item. Items without a defined template will use the default
+template.
 
 .. code-block:: yaml
 
