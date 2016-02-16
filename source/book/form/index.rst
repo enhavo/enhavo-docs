@@ -6,3 +6,4 @@ Form
 
     wysiwyg
     boolean
+    list

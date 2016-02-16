@@ -22,3 +22,8 @@ Cookbook
   * :doc:`/cookbook/resource/add-new-resource`
   * :doc:`/cookbook/resource/dynamic-routing`
   * :doc:`/cookbook/resource/make-resource-sortable`
+
+* **Contact Form**
+
+  * :doc:`/cookbook/contactForm/add-contact-form`
+  * :doc:`/cookbook/contactForm/add-fields-to-form`

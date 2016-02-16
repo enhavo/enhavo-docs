@@ -37,6 +37,7 @@ Book
 
   * :doc:`/book/form/wysiwyg`
   * :doc:`/book/form/boolean`
+  * :doc:`/book/form/list`
 
 * **Block**
 

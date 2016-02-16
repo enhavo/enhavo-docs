@@ -1,7 +1,15 @@
-```
-make clear html
+Install
+-------
+
+```bash
+$ pip install -U Sphinx
+$ make clean html
 ```
 
-```
-sphinx-autobuild source build/html
+Autobuilder
+-----------
+
+```bash
+$ pip install sphinx-autobuild
+$ sphinx-autobuild source build/html
 ```
