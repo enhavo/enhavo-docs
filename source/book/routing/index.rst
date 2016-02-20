@@ -10,5 +10,5 @@ Routing
     update-route
     delete-route
     table-route
+    sorting-routes
     route-generator
-    dynamic-routing

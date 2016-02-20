@@ -1,6 +1,6 @@
 Introduction
 ============
 
-what are blocks and how to use them?
+//TODO: what are blocks and how to use them?
 
 

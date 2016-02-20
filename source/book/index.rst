@@ -30,8 +30,8 @@ Book
   * :doc:`/book/routing/update-route`
   * :doc:`/book/routing/delete-route`
   * :doc:`/book/routing/table-route`
+  * :doc:`/book/routing/sorting-routes`
   * :doc:`/book/routing/route-generator`
-  * :doc:`/book/routing/dynamic-routing`
 
 * **Form**
 
@@ -55,5 +55,6 @@ Book
 
 * **Grid**
 
+  * :doc:`/book/grid/introduction`
+  * :doc:`/book/grid/use-content`
   * :doc:`/book/grid/rendering`
-  * :doc:`/book/grid/use-in-form`

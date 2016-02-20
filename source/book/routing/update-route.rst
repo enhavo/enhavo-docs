@@ -6,30 +6,28 @@ Update Route
     enhavo_page_page_update:
         options:
             expose: true
-        path: /admin/enhavo/page/page/update/{id}
+        path: /enhavo/page/page/update/{id}
         methods: [GET,POST]
         defaults:
             _controller: enhavo_page.controller.page:updateAction
             _sylius:
-                template: enhavoAdminBundle:Resource:update.html.twig
+                template: EnhavoAppBundle:Resource:update.html.twig
             _viewer:
                 type: edit
-                parameters:
-                    param1: value1
-                    param2: value2
+                translationDomain: EnhavoPageBundle
                 tabs:
                     page:
-                        label: page
-                        template: enhavoPageBundle:Tab:page.html.twig
+                        label: page.label.page
+                        template: EnhavoPageBundle:Tab:page.html.twig
                     content:
-                        label: Content
-                        template: enhavoPageBundle:Tab:content.html.twig
+                        label: page.label.content
+                        template: EnhavoPageBundle:Tab:content.html.twig
                     seo:
-                        label: Seo
-                        template: enhavoPageBundle:Tab:seo.html.twig
+                        label: page.label.seo
+                        template: EnhavoPageBundle:Tab:seo.html.twig
                 buttons:
                     cancel:
-                        route:
+                        route: ~
                         display: true
                         role: ~
                         label: label.cancel
@@ -47,13 +45,13 @@ Update Route
                         label: label.preview
                         icon: eye
                     delete:
-                        route:
+                        route: ~
                         display: true
                         role: ~
                         label: label.delete
                         icon: trash
                 form:
-                    template: enhavoAdminBundle:View:tab.html.twig
+                    template: EnhavoAppBundle:View:tab.html.twig
                     theme: ~
                     action: enhavo_page_page_update
                     delete: enhavo_page_page_delete

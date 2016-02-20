@@ -6,3 +6,5 @@ Resource
 
     add-sylius-extension
     add-new-resource
+    dynamic-routing
+    make-resource-sortable
