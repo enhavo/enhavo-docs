@@ -51,11 +51,13 @@ Here is a full configuration example of a table route
                                 label:
                                 property: position
                                 width: 1
-                                widget: EnhavoAppBundle:Widget:position.html.twig
+                                widget:
+                                    type: template
+                                    template: EnhavoAppBundle:Widget:position.html.twig
                         sorting:
                             sortable: true
-                            move_up_route: enhavo_user_user_move_up
-                            move_up_route: enhavo_user_user_move_down
+                            move_after_route: enhavo_user_user_move_after
+                            move_to_page_route: enhavo_user_user_move_to_page
 
 Viewer
 ------

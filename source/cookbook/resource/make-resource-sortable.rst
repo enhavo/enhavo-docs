@@ -60,21 +60,24 @@ Add route changes manually
 If you are not creating a new resource but rather modifying an existing one, here are the route configurations to
 do manually to activate sortable behaviour.
 
-1. Add routes for moving items up and down
-------------------------------------------
+1. Add routes for moving items to new positions
+-----------------------------------------------
 
-There are two routes specifically for moving the resource item up and down in order to change the sorting.
+There are two routes specifically for moving the resource item to its new position.
 These are not present by default, they are only needed for sortable resources.
+
+Note: If you changed the pagination value in the table route, you need to add the same value to the move_to_page route
+as well (defaults: _sylius: paginate: x)
 
 .. code-block:: yaml
 
-    enhavo_slider_slide_move_up:
+    enhavo_slider_slide_move_after:
         options:
             expose: true
-        path: /enhavo/slider/slide/move-up
+        path: /enhavo/slider/slide/move-after/{id}/{target}
         methods: [POST]
         defaults:
-            _controller: enhavo_slider.controller.slide:moveUpAction
+            _controller: enhavo_slider.controller.slide:moveAfterAction
             _sylius:
                 sortable_position: position # Property name
             _viewer:
@@ -83,13 +86,13 @@ These are not present by default, they are only needed for sortable resources.
 
 .. code-block:: yaml
 
-    enhavo_slider_slide_move_down:
+    enhavo_slider_slide_move_to_page:
         options:
             expose: true
-        path: /enhavo/slider/slide/move-down
+        path: /enhavo/slider/slide/move-to-page/{id}/{page}/{top}
         methods: [POST]
         defaults:
-            _controller: enhavo_slider.controller.slide:moveDownAction
+            _controller: enhavo_slider.controller.slide:moveToPageAction
             _sylius:
                 sortable_position: position # property name
             _viewer:
@@ -99,8 +102,8 @@ These are not present by default, they are only needed for sortable resources.
 ---------------------
 
 The table route defines the view where the user can see a table of all the resource items. You need to modify this
-route so that the items appear in the right order. Also you have to add an extra column to the table to display arrow
-buttons for moving the item.
+route so that the items appear in the right order. Also you have to add an extra column to the table to display the
+drag/drop button for moving the item.
 
 .. code-block:: yaml
 
@@ -120,8 +123,8 @@ buttons for moving the item.
                 table:
                     sorting:                                                    #
                         sortable: true                                          # true to activate
-                        move_up_route: enhavo_slider_slide_move_up              # route defined above
-                        move_down_route: enhavo_slider_slide_move_down          # route defined above
+                        move_after_route: enhavo_slider_slide_move_after        # route defined above
+                        move_to_page_route: enhavo_slider_slide_move_to_page    # route defined above
                     columns:
                         id:
                             label: id
@@ -131,11 +134,11 @@ buttons for moving the item.
                             label: title
                             property: title
                             width: 10
-                        position:                                               # column with arrows
+                        position:                                               # column with button
                             label: position                                     # table headline
                             property: position                                  # property name
-                            width: 1                                            #
-                            widget: EnhavoAppBundle:Widget:position.html.twig   # widget rendering arrows
+                            width: 1                                            # column size
+                            widget: EnhavoAppBundle:Widget:position.html.twig   # widget rendering drag/drop button
 
 Commented lines are new.
 
