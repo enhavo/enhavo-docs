@@ -25,3 +25,7 @@ Cookbook
 
   * :doc:`/cookbook/contactForm/add-contact-form`
   * :doc:`/cookbook/contactForm/add-fields-to-form`
+
+* **Workflow**
+
+  * :doc:`/cookbook/workflow/add-new-workflow`
