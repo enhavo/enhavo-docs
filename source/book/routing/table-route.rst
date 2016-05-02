@@ -58,6 +58,13 @@ Here is a full configuration example of a table route
                             sortable: true
                             move_after_route: enhavo_user_user_move_after
                             move_to_page_route: enhavo_user_user_move_to_page
+                        batch_actions:
+                            delete:
+                                label: table.batch.action.delete
+                                confirm_message: table.batch.message.confirm.delete
+                                translation_domain: EnhavoAppBundle
+                                permission: ROLE_ENHAVO_APP_USER_DELETE
+                                position: 0
 
 Viewer
 ------

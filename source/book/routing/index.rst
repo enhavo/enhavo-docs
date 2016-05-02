@@ -9,6 +9,7 @@ Routing
     create-route
     update-route
     delete-route
+    batch-action-route
     table-route
     sorting-routes
     route-generator
