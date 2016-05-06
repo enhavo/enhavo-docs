@@ -8,15 +8,10 @@ To create a project with enhavo, you just need to run the following composer com
     composer create-project enhavo/enhavo-project project-name dev-master
 
 After you have successfully installed enhavo via composer and set up the database settings in your parameters.yml
-you can update your database schema.
+you can run the enhavo installer.
 
 .. code-block:: bash
 
-    app/console doctrine:schema:update --force
-    app/console doctrine:fixtures:load
+    app/console enhavo:install
 
-Now you can add your own bundles to the project, for example by using the Symfony generate commands.
-
-.. code-block:: bash
-
-    app/console generate:bundle
+Now you are ready to use the enhavo cms. If you add **/web** to your document root, you will see the enhavo welcome page
