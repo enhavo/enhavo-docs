@@ -134,12 +134,13 @@ drag/drop button for moving the item.
                             label: title
                             property: title
                             width: 10
-                        position:                                               # column with button
-                            label: position                                     # table headline
-                            property: position                                  # property name
-                            width: 1                                            # column size
-                            widget: EnhavoAppBundle:Widget:position.html.twig   # widget rendering drag/drop button
-
+                        position:                                                   # column with button
+                            label: position                                         # table headline
+                            property: position                                      # property name
+                            width: 1                                                # column size
+                            widget:                                                 #
+                                type: template                                      #
+                                template: EnhavoAppBundle:Widget:position.html.twig # widget rendering drag/drop button
 Commented lines are new.
 
 3. Modify create route
