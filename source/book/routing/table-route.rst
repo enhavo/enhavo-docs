@@ -1,71 +1,5 @@
 Table Route
-============
-
-
-Viewer
-------
-
-+----------------+----------------------------------------------------------------------------------+
-| **parameters** | List of parameters pass to the twig template                                     |
-+----------------+----------------------------------------------------------------------------------+
-| **table**      | Configuration for the specific table                                             |
-+----------------+----------------------------------------------------------------------------------+
-
-Table
------
-
-.. code-block:: yaml
-
-    table:
-        width: 5
-        columns:
-            id:
-                title: ID
-                property: id
-                width: 1
-            title:
-                title: ID
-                property: id
-                width: 1
-            public:
-                label: public
-                property: public
-                widget: EnhavoAdminBundle:Widget:boolean.html.twig
-
-
-+----------------+----------------------------------------------------------------------------------+
-| **title**      | The header of this column                                                        |
-+----------------+----------------------------------------------------------------------------------+
-| **property**   | Property of that model or row, which should be use to display                    |
-+----------------+----------------------------------------------------------------------------------+
-| **widget**     | A template file, that render that table cell                                     |
-+----------------+----------------------------------------------------------------------------------+
-| **width**      | Define the width of the column                                                   |
-+----------------+----------------------------------------------------------------------------------+
-
-Width
------
-
-You can define a width for the the table itself and per column. How wide it's in the end, is up to the
-both vars in dependency. The wide of a table is every time the same, cause it is responsive and uses
-the bootstrap grid, which has 12 columns by default. So if you define the table with 8 and a two columns with
-4 it will map the quotient to the 12 column grid. In this case bot column have 50% of the full table so it uses
-6 column spaces.
-
-Widget
-------
-
-A Widget helps you to display a table cell to your specific needs.
-
-Here is an example how a widget file can look like. The value of the property will pass the widget file
-as ``value``. You can now define how it should be rendered.
-
-.. code-block:: twig
-
-    {# EnhavoAdminBundle:Widget:date.html.twig #}
-    {% if value %}
-        {{ value.format('d.m.Y') }}
-    {% endif %}
+===========
 
 Route
 -----
@@ -98,17 +32,98 @@ Here is a full configuration example of a table route
                         param1: value1
                         param2: value2
                     table:
-                        width: 5
+                        width: 8
                         columns:
                             id:
-                                title: ID
-                                field: id
+                                label: id
+                                property: id
                                 width: 1
                             title:
-                                title: ID
-                                field: id
-                                width: 1
+                                label: title
+                                property: title
+                                width: 9
                             public:
                                 label: public
                                 property: public
-                                widget: enhavoAdminBundle:Widget:boolean.html.twig
+                                width: 1
+                                widget: EnhavoAppBundle:Widget:boolean.html.twig
+                            position:
+                                label:
+                                property: position
+                                width: 1
+                                widget:
+                                    type: template
+                                    template: EnhavoAppBundle:Widget:position.html.twig
+                        sorting:
+                            sortable: true
+                            move_after_route: enhavo_user_user_move_after
+                            move_to_page_route: enhavo_user_user_move_to_page
+
+Viewer
+------
+
++----------------+----------------------------------------------------------------------------------+
+| **parameters** | List of parameters passed to the twig template                                   |
++----------------+----------------------------------------------------------------------------------+
+| **table**      | Configuration for the specific table                                             |
++----------------+----------------------------------------------------------------------------------+
+
+Table
+-----
+
+.. code-block:: yaml
+
+    table:
+        width: 5
+        columns:
+            id:
+                label: id
+                property: id
+                width: 1
+            title:
+                label: title
+                property: title
+                width: 10
+            public:
+                label: public
+                property: public
+                widget: EnhavoAdminBundle:Widget:boolean.html.twig
+
+
++----------------+----------------------------------------------------------------------------------+
+| **label**      | The header of this column                                                        |
++----------------+----------------------------------------------------------------------------------+
+| **property**   | Property of that model or row, which should be used to display                   |
++----------------+----------------------------------------------------------------------------------+
+| **widget**     | A template file that renders that table cell                                     |
++----------------+----------------------------------------------------------------------------------+
+| **width**      | Defines the width of the column                                                  |
++----------------+----------------------------------------------------------------------------------+
+
+Width
+-----
+
+You can define a width for the the table itself and per column. How wide it is in the end is up to both these variables.
+The default table template uses the bootstrap grid for responsive design, mapping the available page width to 12
+columns. If you want your table to stretch over half of the available area, you have to set ``table.width`` to 6. The
+default value is 12, stretching over the whole area.
+
+The table itself is also divided into 12 columns, regardless of the value of ``table.width``. By setting
+``table.columns.[column].width``, you can set the width of each column inside the table. The total sum should not
+exceed 12. The default value is 1.
+
+Widget
+------
+
+A Widget helps you to display a table cell to your specific needs.
+
+Here is an example for how a widget file can look like. The value of the property will be passed to the widget file
+as a twig variable called ``value``. Then you can define how it should be rendered.
+
+.. code-block:: twig
+
+    {# EnhavoAdminBundle:Widget:date.html.twig #}
+    {% if value %}
+        {{ value.format('d.m.Y') }}
+    {% endif %}
+

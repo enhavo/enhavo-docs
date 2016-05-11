@@ -1,29 +1,27 @@
 Wysiwyg
 =======
 
-This section explain how you can configure your wysiwyg editor system wide
-and in some special cases. The enhavo use the ``TinyMCE`` editor, if
-you are familiar with its settings you can easily configure it, otherwise
-you should also read the TinyMCE `docs for configuration`_.
+This section explains how you can configure your wysiwyg editor system-wide and in some special cases.
+Enhavo uses the ``TinyMCE`` editor, so if you are familiar with its settings you should easily be able to configure it.
+Otherwise you should also read the TinyMCE `configuration docs`_.
 
-.. _docs for configuration: http://www.tinymce.com/wiki.php/Configuration
+.. _configuration docs: http://www.tinymce.com/wiki.php/Configuration
 
 
 Configuration
 -------------
 
-You can find the system wide configuration under ``app/config/wysiwyg.yml``.
-All settings here a equivalent to the ``TinyMCE`` configuration, mentioned above.
-Note that this is a yaml file and the TinyMCE configuration is a Javascript Object or
-JSON, but yaml can be translated one to one JSON.
+You can find the system wide configurations under ``app/config/wysiwyg.yml``. All settings here are equivalent to
+the ``TinyMCE`` configuration, mentioned above. Note that this is a yaml file while the TinyMCE configuration is a
+Javascript Object or JSON, but yaml can easily be converted to JSON.
 
-This configuration are available:
+These configurations are available:
 
-.. _height: http://www.tinymce.com/wiki.php/Configuration:height
-.. _formats: http://www.tinymce.com/wiki.php/Configuration:formats
-.. _style_formats: http://www.tinymce.com/wiki.php/Configuration:style_formats
-.. _toolbarN: http://www.tinymce.com/wiki.php/Configuration:toolbar%3CN%3E
-.. _content_css: http://www.tinymce.com/wiki.php/Configuration:content_css
+.. _height: https://www.tinymce.com/docs/configure/editor-appearance/#height
+.. _formats: https://www.tinymce.com/docs/configure/content-formatting/#formats
+.. _style_formats: https://www.tinymce.com/docs/configure/content-formatting/#style_formats
+.. _toolbarN: https://www.tinymce.com/docs/configure/editor-appearance/#toolbarn
+.. _content_css: https://www.tinymce.com/docs/configure/content-appearance/#content_css
 
 - height_
 - toolbarN_
@@ -59,36 +57,37 @@ This configuration are available:
           strikethrough: {inline: 'del'}
           customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
 
-    content_css: ~ #read the text below
+    content_css: ~ # see below
 
 **content_css**
 
-For the content_css, we need assets/assetics so you need to use the @ syntax
+Since we're using the assets/assetics commands for css file locations, you need to use the "@" syntax for the
+configuration of ``content_css``.
+
+.. code-block:: yaml
+
+    #single file
+    content_css: '@FooBundle/Resources/public/css/styleOne.css'
 
 .. code-block:: yaml
 
     #multiple files
     content_css:
-      - '@enhavoProjectBundle/Resources/public/css/styleOne.css'
-      - '@enhavoProjectBundle/Resources/public/css/styleTwo.css'
-
-.. code-block:: yaml
-
-    #single file
-    content_css: '@enhavoProjectBundle/Resources/public/css/styleOne.css'
+      - '@FooBundle/Resources/public/css/styleOne.css'
+      - '@FooBundle/Resources/public/css/styleTwo.css'
 
 
 FormType
 --------
 
-If you need a special configuration just for one form, you can override or filter
-some settings in the FormType option array.
+If you need a special configuration for just one form, you can override or filter some settings in your FormType
+class, in the option array.
 
-- **formats**: Needs an array, where you can list the formats which should be shown.
-- **height**: Overwrite the height
-- **toolbar1**: Overwrite the toolbar1
-- **toolbar2**: Overwrite the toolbar2
-- **content_css**: Overwrite the content_css, this could be an array or a string (Use @ Syntax)
+- **formats**: Needs an array, where you can list the formats that should be shown.
+- **height**: Override the height
+- **toolbar1**: Override the toolbar1
+- **toolbar2**: Override the toolbar2
+- **content_css**: Override the content_css, this could be an array or a string (use "@" syntax)
 
 .. code-block:: php
 
@@ -98,9 +97,7 @@ some settings in the FormType option array.
         'toolbar1' => '',
         'toolbar2' => ''
         'content_css' => array(
-            '@enhavoProjectBundle/Resources/public/css/styleOne.css'
+            '@FooBundle/Resources/public/css/styleOne.css'
         )
     );
-
-
 

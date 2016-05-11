@@ -1,0 +1,39 @@
+.wy-side-nav-search {
+    background-color: #021b23;
+}
+
+.wy-side-nav-search input[type=text] {
+    border-color: #021b23;
+}
+
+.wy-side-nav-search img {
+    height: auto;
+    width: auto;
+    background-color: #021b23;
+    border-radius: 0;
+}
+
+.wy-nav-side {
+    background: #021b23;
+}
+
+.wy-nav-content {
+    max-width: none;
+}
+
+div.first.last.line-block {
+    margin-left: 0px;
+}
+
+ul.first.last.simple {
+    margin-bottom: 0px;
+}
+
+a:hover {
+    color: #2980B9;
+}
+
+a:active {
+    background-color: #021b23;
+}
+

@@ -1,13 +1,14 @@
-Add sylius extension
-====================
+Adding a sylius extension
+=========================
 
-Let your extension extend ``SyliusResourceExtension`` and add the required parameters.
+Edit the extension in the folder DependencyInjection of your bundle to be derived from ``SyliusResourceExtension``
+and add the required parameters.
 
 .. code-block:: php
 
     <?php
 
-    namespace acme\ProjectBundle\DependencyInjection;
+    namespace Acme\ProjectBundle\DependencyInjection;
 
     use Symfony\Component\DependencyInjection\ContainerBuilder;
     use Symfony\Component\Config\FileLocator;
@@ -19,16 +20,17 @@ Let your extension extend ``SyliusResourceExtension`` and add the required param
      *
      * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
      */
-    class acmeProjectExtension extends SyliusResourceExtension
+    class AcmeProjectExtension extends AbstractResourceExtension
     {
-        // You can choose your application name, it will use to prefix the configuration keys in the container (the default value is sylius).
+        // You can choose your application name, it will be used as prefix for the configuration keys
+        // in the container (the default value is sylius).
         protected $applicationName = 'acme_project';
 
         protected $bundleName = 'project';
 
         protected $companyName = 'acme';
 
-        // You can define where yours service definitions are
+        // You can define where your service definitions are located
         protected $configDirectory = '/../Resources/config';
 
         // You can define what service definitions you want to load
@@ -37,8 +39,8 @@ Let your extension extend ``SyliusResourceExtension`` and add the required param
             'forms',
         );
 
-        // You can define the file formats of the files loaded
-        //protected $configFormat = self::CONFIG_XML;
+        // You can define the file format of the files loaded (default: xml)
+        protected $configFormat = self::CONFIG_YAML;
 
         public function load(array $config, ContainerBuilder $container)
         {
