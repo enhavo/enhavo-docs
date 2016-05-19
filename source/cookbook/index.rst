@@ -7,6 +7,8 @@ Cookbook
     package/index
     grid/index
     resource/index
+    contactForm/index
+    batchActions/index
 
 * **Package**
 
@@ -27,3 +29,8 @@ Cookbook
 
   * :doc:`/cookbook/contactForm/add-contact-form`
   * :doc:`/cookbook/contactForm/add-fields-to-form`
+
+* **Batch Actions**
+
+  * :doc:`/cookbook/batchActions/add-batch-action`
+  * :doc:`/cookbook/batchActions/remove-batch-actions`
