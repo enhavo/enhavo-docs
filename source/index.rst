@@ -15,6 +15,7 @@ Contents
 
    book/index
    cookbook/index
+   reference/index
    bundles/index
    components/index
    contributing/index
