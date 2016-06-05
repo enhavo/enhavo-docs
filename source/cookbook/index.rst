@@ -34,3 +34,13 @@ Cookbook
 
   * :doc:`/cookbook/batchActions/add-batch-action`
   * :doc:`/cookbook/batchActions/remove-batch-actions`
+
+
+* **Button**
+
+  * :doc:`/cookbook/button/create-button`
+
+
+* **Block**
+
+  * :doc:`/cookbook/block/create-block`
