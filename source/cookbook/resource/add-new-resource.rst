@@ -3,13 +3,83 @@ Add new resource
 
 You can easily add a new resource to the CMS by following these steps:
 
-1) Add resource to menu
-2) Generate new routes
-3) Create a controller
-4) Add configuration
-5) Create an Entity and FormType
+1) Create an Entity and FormType
+2) Add resource to menu
+3) Generate new routes
+4) Create a controller
+5) Add configuration
+
 
 As an example, we will be adding a resource called project.
+
+
+Create an Entity and FormType
+-----------------------------
+
+Finally you can create the Entity and FormType.
+
+Create the Entity with the following command.
+
+.. code-block:: bash
+
+    app/console doctrine:generate:entity
+
+After that you have to update your database.
+
+.. code-block:: bash
+
+    app/console doctrine:schema:update --force
+
+For the FormType add a new file called ``ProjectType.php`` to ``ProjectBundle/Form/Type``.
+
+.. code-block:: php
+
+    <?php
+
+    namespace Acme\ProjectBundle\Form\Type;
+
+    use Symfony\Component\Form\FormBuilderInterface;
+    use Symfony\Component\OptionsResolver\OptionsResolver;
+    use Symfony\Component\Form\AbstractType;
+
+    class ProjectType extends AbstractType
+    {
+        public function buildForm(FormBuilderInterface $builder, array $options)
+        {
+            //Here you add the fields you have just added to the entity
+            //In our case for example 'title' and 'text'
+            $builder->add('title', 'text', array(
+                'label' => 'label.title'
+            ));
+            $builder->add('text', 'wysiwyg', array(
+                'label' => 'label.text'
+            ));
+        }
+
+        public function configureOptions(OptionsResolver $resolver)
+        {
+            $resolver->setDefaults(array(
+                'data_class' => 'Acme\ProjectBundle\Entity\Project'
+            ));
+        }
+
+        public function getName()
+        {
+            return 'acme_project_project';
+        }
+    }
+
+To use the form you have to add the service in the ``service.yml`` on your own.
+
+.. code-block:: yml
+
+    services:
+        acme_project_project:
+            class: %acme_project.form.type.project.class%
+            tags:
+                - { name: form.type }
+
+
 
 Add resource to menu
 --------------------
@@ -21,8 +91,9 @@ First we add the new resource to the menu in ``app/config/enhavo.yml``
     menu:
         project:
             label: label.project
+            translationDomain: ProjectBundle
             route: acme_project_project_index
-            role: ROLE_ESPERANTO_PROJECT_PROJECT_INDEX
+            role: ROLE_ENHAVO_ACME_PROJECT_PROJECT_INDEX
 
 Generate new routes
 -------------------
@@ -35,11 +106,11 @@ Now generate all the routes you need for the new resource.
 
 If you want your resource to be sortable by the user, you can use the optional parameter "sorting" to additionally
 generate sorting behaviour. The value of the parameter is a property type integer in your resource entity to save the
-items position. In this example it is called ``order``.
+items position. In this example it is called ``position``.
 
 .. code-block:: bash
 
-    app/console enhavo:generate:routing acme_project project --sorting="order"
+    app/console enhavo:generate:routing acme_project project --sorting="position"
 
 Create a new file called ``project.yml`` in ``ProjectBundle/Resources/config/routing``.
 Copy the routes from the terminal into it.
@@ -49,7 +120,7 @@ After you have done this, you have to tell the ``routing.yml`` in ``app/config``
 .. code-block:: yml
 
     acme_project_project:
-        resource: "@acmeProjectBundle/Resources/config/routing/project.yml"
+        resource: "@AcmeProjectBundle/Resources/config/routing/project.yml"
         prefix:   /
 
 Create a controller
@@ -86,8 +157,8 @@ Either you can do it in the ``config.yml`` in ``app/config``:
                 object_manager: default
                 templates: acme_project:Project
                 classes:
-                    model: acme\ProjectBundle\Entity\Project
-                    controller: acme\ProjectBundle\Controller\ProjectController
+                    model: Acme\ProjectBundle\Entity\Project
+                    controller: Acme\ProjectBundle\Controller\ProjectController
 
 or you add the resource to the ``Configuration.php`` in ``ProjectBundle/DependencyInjection``:
 
@@ -95,92 +166,41 @@ or you add the resource to the ``Configuration.php`` in ``ProjectBundle/Dependen
 
     <?php
     // The resources
-            ->children()
-                ->arrayNode('classes')
+    $rootNode
+        ->children()
+            ->scalarNode('driver')->defaultValue('doctrine/orm')->end()
+        ->end()
+
+        ->children()
+            ->arrayNode('resources')
                 ->addDefaultsIfNotSet()
-                    ->children()
-                        ->arrayNode('project')
+                ->children()
+                    ->arrayNode('user')
                         ->addDefaultsIfNotSet()
-                            ->children()
-                                ->scalarNode('model')->defaultValue('acme\ProjectBundle\Entity\Project')->end()
-                                ->scalarNode('controller')->defaultValue('acme\ProjectBundle\Controller\ProjectController')->end()
-                                ->scalarNode('repository')->end()
-                                ->scalarNode('form')->defaultValue('acme\ProjectBundle\Form\Type\ProjectType')->end()
-                                ->scalarNode('admin')->defaultValue('Enhavo\Bundle\AppBundle\Admin\BaseAdmin')->end()
+                        ->children()
+                            ->variableNode('options')->end()
+                            ->arrayNode('classes')
+                                ->addDefaultsIfNotSet()
+                                ->children()
+                                    ->scalarNode('model')->defaultValue('Acme\ProjectBundle\Entity\Project')->end()
+                                    ->scalarNode('controller')->defaultValue('Enhavo\Bundle\AppBundle\Controller\ResourceController')->end()
+                                    ->scalarNode('repository')->defaultValue('Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository')->end()
+                                    ->scalarNode('factory')->defaultValue('Sylius\Component\Resource\Factory\Factory')->end()
+                                    ->arrayNode('form')
+                                        ->addDefaultsIfNotSet()
+                                        ->children()
+                                            ->scalarNode('default')->defaultValue('Acme\ProjectBundle\Form\Type\ProjectType')->cannotBeEmpty()->end()
+                                        ->end()
+                                    ->end()
+                                ->end()
                             ->end()
                         ->end()
                     ->end()
                 ->end()
             ->end()
-        ;
+        ->end()
+    ;
 
-If you use the second option, the file ``ProjectBundle/DependencyInjection\AcmeProjectExtenstion.php`` has to extend
+If you use the second option, the file ``ProjectBundle/DependencyInjection/AcmeProjectExtenstion.php`` has to extend
 ``SyliusResourceExtension``, otherwise the services won't work.
-
-Create an Entity and FormType
------------------------------
-
-Finally you can create the Entity and FormType.
-
-Create the Entity with the following command.
-
-.. code-block:: bash
-
-    app/console doctrine:generate:entity
-
-After that you have to update your database.
-
-.. code-block:: bash
-
-    app/console doctrine:schema:update --force
-
-For the FormType add a new file called ``ProjectType.php`` to ``ProjectBundle/Form/Type``.
-
-.. code-block:: php
-
-    <?php
-
-    namespace acme\ProjectBundle\Form\Type;
-
-    use Symfony\Component\Form\FormBuilderInterface;
-    use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-    use Symfony\Component\Form\AbstractType;
-
-    class ProjectType extends AbstractType
-    {
-        public function buildForm(FormBuilderInterface $builder, array $options)
-        {
-            //Here you add the fields you have just added to the entity
-            //In our case for example 'title' and 'text'
-            $builder->add('title', 'text', array(
-                'label' => 'label.title'
-            ));
-            $builder->add('text', 'wysiwyg', array(
-                'label' => 'label.text'
-            ));
-        }
-
-        public function setDefaultOptions(OptionsResolverInterface $resolver)
-        {
-            $resolver->setDefaults(array(
-                'data_class' => 'acme\ProjectBundle\Entity\Project'
-            ));
-        }
-
-        public function getName()
-        {
-            return 'acme_project_project';
-        }
-    }
-
-To use the form you have to add the service in the ``service.yml`` on your own.
-
-.. code-block:: yml
-
-    services:
-        acme_project_project:
-            class: %acme_project.form.type.project.class%
-            tags:
-                - { name: form.type }
-
 

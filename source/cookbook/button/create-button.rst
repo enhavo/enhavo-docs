@@ -49,6 +49,7 @@ Now you have to add the created class to the dependency injection container.
 
 .. code-block:: yaml
 
+    #service.yml
     my_bundle.button.download:
         class: MyBundle\Button\DownloadButton
         calls:
