@@ -31,3 +31,7 @@ Cookbook
 * **Workflow**
 
   * :doc:`/cookbook/workflow/add-new-workflow`
+
+* **Search**
+
+  * :doc:`/cookbook/search/add-search-for-entity`
