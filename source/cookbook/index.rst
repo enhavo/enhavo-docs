@@ -9,6 +9,7 @@ Cookbook
     resource/index
     contactForm/index
     batchActions/index
+    category/index
 
 * **Package**
 
@@ -44,3 +45,8 @@ Cookbook
 * **Block**
 
   * :doc:`/cookbook/block/create-block`
+
+
+* **Category**
+
+  * :doc:`/cookbook/category/add-mulitple-categories`
