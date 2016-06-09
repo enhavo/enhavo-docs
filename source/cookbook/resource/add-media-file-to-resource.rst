@@ -26,6 +26,40 @@ files if our resource gets deleted.
 
 We also have to add the member variable as well as getter/setter to our Entity class, of course.
 
+.. code-block:: php
+
+    class MyResource
+    {
+
+        ...
+
+        /**
+         * @var FileInterface
+         */
+        protected $file;
+
+        /**
+         * Set file
+         *
+         * @param $file FileInterface|null
+         */
+        public function setFile(FileInterface $file = null)
+        {
+            $this->file = $file;
+        }
+
+        /**
+         * Get file
+         *
+         * @return FileInterface|null
+         */
+        public function getFile()
+        {
+            return $this->file;
+        }
+
+        ...
+
 Now for the user to be able to upload files, we can use the form type ``enhavo_files`` in our form. For a single file
 we need to set the parameter *multiple* to false.
 
@@ -47,9 +81,11 @@ of a OneToOne relationship, we use a ManyToMany relationship in our Doctrine def
 *onDelete: cascade* option to the join tables columns to automatically clean up any attached files if the resource
 gets deleted.
 
-**Note:** Don't use a OneToMany relationship! It will cause doctrine to generate a foreign key column in the entity_file
-table, thus losing the loose coupling between ``File`` and its parents and potentially causing problems with other
-resources using ``File``.
+.. note::
+
+    Don't use a OneToMany relationship! It will cause doctrine to generate a foreign key column in the entity_file
+    table, thus losing the loose coupling between ``File`` and its parents and potentially causing problems with other
+    resources using ``File``.
 
 .. code-block:: yml
 
@@ -69,6 +105,79 @@ resources using ``File``.
                         onDelete: cascade
 
 We also add the member variable as well as getter/setter to our Entity class.
+
+.. code-block:: php
+
+    class MyResource
+    {
+
+        ...
+
+        /**
+         * @var ArrayCollection
+         */
+        protected $files;
+
+        public function __construct()
+        {
+            $this->files = new ArrayCollection();
+        }
+
+        /**
+         * Add files
+         *
+         * @param FileInterface $file
+         */
+        public function addFiles(FileInterface $file)
+        {
+            if ($this->files === null) {
+                $this->files = new ArrayCollection();
+            }
+
+            $this->files[] = $file;
+        }
+
+        /**
+         * Remove files
+         *
+         * @param FileInterface $file
+         */
+        public function removeFiles(FileInterface $file)
+        {
+            $this->files->removeElement($file);
+        }
+
+        /**
+         * Get files
+         *
+         * @return \Doctrine\Common\Collections\Collection
+         */
+        public function getFiles()
+        {
+            return $this->files;
+        }
+
+        /**
+         * Add file
+         *
+         * @param FileInterface $file
+         */
+        public function addFile(FileInterface $file)
+        {
+            $this->files[] = $file;
+        }
+
+        /**
+         * Remove file
+         *
+         * @param FileInterface $file
+         */
+        public function removeFile(FileInterface $file)
+        {
+            $this->files->removeElement($file);
+        }
+
+        ...
 
 Again in the resources form definition, we use the form type ``enhavo_files``. But this time we set the parameter
 *multiple* to true. Since this is the default value of the parameter, we can omit it as well.
