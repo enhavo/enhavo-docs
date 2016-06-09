@@ -12,6 +12,7 @@ Book
     configuration/index
     menu/index
     grid/index
+    search/index
 
 * **Installation**
 
@@ -58,3 +59,9 @@ Book
   * :doc:`/book/grid/introduction`
   * :doc:`/book/grid/use-content`
   * :doc:`/book/grid/rendering`
+
+* **Search**
+
+  * :doc:`/book/search/installation`
+  * :doc:`/book/search/strategies`
+  * :doc:`/book/search/search-engines`
