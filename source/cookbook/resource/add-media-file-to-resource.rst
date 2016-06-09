@@ -28,6 +28,8 @@ We also have to add the member variable as well as getter/setter to our Entity c
 
 .. code-block:: php
 
+    use Enhavo\Bundle\MediaBundle\Model\FileInterface;
+
     class MyResource
     {
 
@@ -108,6 +110,8 @@ We also add the member variable as well as getter/setter to our Entity class.
 
 .. code-block:: php
 
+    use Enhavo\Bundle\MediaBundle\Model\FileInterface;
+
     class MyResource
     {
 
@@ -121,30 +125,6 @@ We also add the member variable as well as getter/setter to our Entity class.
         public function __construct()
         {
             $this->files = new ArrayCollection();
-        }
-
-        /**
-         * Add files
-         *
-         * @param FileInterface $file
-         */
-        public function addFiles(FileInterface $file)
-        {
-            if ($this->files === null) {
-                $this->files = new ArrayCollection();
-            }
-
-            $this->files[] = $file;
-        }
-
-        /**
-         * Remove files
-         *
-         * @param FileInterface $file
-         */
-        public function removeFiles(FileInterface $file)
-        {
-            $this->files->removeElement($file);
         }
 
         /**
