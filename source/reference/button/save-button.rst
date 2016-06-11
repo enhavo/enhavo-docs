@@ -8,6 +8,7 @@ Will submit the current form and close the overlay.
 +-------------+--------------------------------------------------------------------+
 | option      | - label_                                                           |
 |             | - route_                                                           |
+|             | - routeParameters_                                                 |
 |             | - icon_                                                            |
 |             | - translationDomain_                                               |
 |             | - display_                                                         |
@@ -37,6 +38,7 @@ action of the form. If the passed resource has already an id, that id will also 
             type: save
             route: my_save_route
 
+.. include:: /reference/button/option/routeParameters.rst
 
 .. include:: /reference/button/option/label.rst
 

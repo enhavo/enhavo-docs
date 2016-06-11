@@ -1,5 +1,5 @@
-DateWidget
-==========
+DateTimeWidget
+==============
 
 Show a formatted date time.
 
