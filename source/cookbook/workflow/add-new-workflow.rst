@@ -13,13 +13,17 @@ If you follow this step, you can add a new workflow easily to the cms.
 Add entity to workflows
 -----------------------
 
-Go to the ``enhavo.yml`` and add the path of the entity you want to use for the workflow under ``enhavo_workflow`` ``entities`
+Go to the ``enhavo.yml`` and add the entity you want to use for the workflow under ``enhavo_workflow`` ``entities`` like this:
 
 .. code-block:: yml
 
     enhavo_workflow:
         entities:
-            - 'Enhavo\Bundle\AcmeBundle\Entity\Acme'
+            -
+                class: %enhavo_acme.model.acme.class%
+                label: 'acme.label.acme'
+                translationDomain: EnhavoAcmeBundle
+                repository: enhavo_acme.repository.acme
 
 Add workflow to entity
 ----------------------
@@ -77,16 +81,16 @@ Now you can use the securityContext in the ``AcmeType.php`` and add the workflow
 
     //Enhavo\Bundle\AcmeBundle\Form\Type
 
-    if($this->securityContext->isGranted('WORKFLOW', $this->dataClass))
+    if($this->securityContext->isGranted('WORKFLOW_ACTIVE', $this->dataClass))
     {
-            $entityName = array();
-            $entityName[0] = 'acme';
+        $entityName = array();
+        $entityName[0] = $this->dataClass;
 
-            $builder->add('workflow_status', 'enhavo_workflow_status', array(
-                'label' => 'workflow.form.label.next_state',
-                'translation_domain' => 'EnhavoWorkflowBundle',
-                'attr' => $entityName
-            ));
+        $builder->add('workflow_status', 'enhavo_workflow_status', array(
+            'label' => 'workflow.form.label.next_state',
+            'translation_domain' => 'EnhavoWorkflowBundle',
+            'attr' => $entityName
+        ));
     }
 
 Update repository
@@ -96,7 +100,7 @@ Add the following code to the entity's repository.
 
 .. code-block:: php
 
-    public function getWorkflowStatusNull()
+    public function getEmptyWorkflowStatus()
     {
         $query = $this->createQueryBuilder('n');
         $query->where('n.workflow_status IS NULL');
