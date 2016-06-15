@@ -57,5 +57,5 @@ Book
 * **Grid**
 
   * :doc:`/book/grid/introduction`
-  * :doc:`/book/grid/use-content`
+  * :doc:`/book/grid/use-grid`
   * :doc:`/book/grid/rendering`
