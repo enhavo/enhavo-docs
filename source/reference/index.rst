@@ -8,6 +8,7 @@ Reference
     block/index
     button/index
     tableWidget/index
+    icon/icon
 
 
 This section contains a short reference information to following types:
@@ -20,3 +21,5 @@ This section contains a short reference information to following types:
 * :doc:`/reference/button/index`
 
 * :doc:`/reference/tableWidget/index`
+
+* :doc:`/reference/icon/icon`
