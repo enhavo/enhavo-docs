@@ -7,6 +7,9 @@ Cookbook
     package/index
     grid/index
     resource/index
+    contactForm/index
+    batchActions/index
+    category/index
 
 * **Package**
 
@@ -22,6 +25,7 @@ Cookbook
   * :doc:`/cookbook/resource/add-new-resource`
   * :doc:`/cookbook/resource/dynamic-routing`
   * :doc:`/cookbook/resource/make-resource-sortable`
+  * :doc:`/cookbook/resource/add-media-file-to-resource.rst`
 
 * **Contact Form**
 
@@ -35,3 +39,20 @@ Cookbook
 * **Search**
 
   * :doc:`/cookbook/search/add-search-for-entity`
+
+* **Batch Actions**
+
+  * :doc:`/cookbook/batchActions/add-batch-action`
+  * :doc:`/cookbook/batchActions/remove-batch-actions`
+
+* **Button**
+
+  * :doc:`/cookbook/button/create-button`
+
+* **Block**
+
+  * :doc:`/cookbook/block/create-block`
+
+* **Category**
+
+  * :doc:`/cookbook/category/add-mulitple-categories`

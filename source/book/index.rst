@@ -30,6 +30,7 @@ Book
   * :doc:`/book/routing/create-route`
   * :doc:`/book/routing/update-route`
   * :doc:`/book/routing/delete-route`
+  * :doc:`/book/routing/batch-action-route`
   * :doc:`/book/routing/table-route`
   * :doc:`/book/routing/sorting-routes`
   * :doc:`/book/routing/route-generator`
