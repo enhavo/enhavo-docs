@@ -5,9 +5,9 @@ You can easily add a new resource to the CMS by following these steps:
 
 1) Create an Entity and FormType
 2) Add resource to menu
-3) Generate new routes
-4) Create a controller
-5) Add configuration
+3) Create a controller
+4) Add configuration
+5) Generate new routes
 
 
 As an example, we will be adding a resource called project.
@@ -51,7 +51,7 @@ For the FormType add a new file called ``ProjectType.php`` to ``ProjectBundle/Fo
             $builder->add('title', 'text', array(
                 'label' => 'label.title'
             ));
-            $builder->add('text', 'wysiwyg', array(
+            $builder->add('text', 'enhavo_wysiwyg', array(
                 'label' => 'label.text'
             ));
         }
@@ -95,34 +95,6 @@ First we add the new resource to the menu in ``app/config/enhavo.yml``
             route: acme_project_project_index
             role: ROLE_ENHAVO_ACME_PROJECT_PROJECT_INDEX
 
-Generate new routes
--------------------
-
-Now generate all the routes you need for the new resource.
-
-.. code-block:: bash
-
-    app/console enhavo:generate:routing acme_project project
-
-If you want your resource to be sortable by the user, you can use the optional parameter "sorting" to additionally
-generate sorting behaviour. The value of the parameter is a property type integer in your resource entity to save the
-items position. In this example it is called ``position``.
-
-.. code-block:: bash
-
-    app/console enhavo:generate:routing acme_project project --sorting="position"
-
-Create a new file called ``project.yml`` in ``ProjectBundle/Resources/config/routing``.
-Copy the routes from the terminal into it.
-
-After you have done this, you have to tell the ``routing.yml`` in ``app/config`` where to find your new ``project.yml``
-
-.. code-block:: yml
-
-    acme_project_project:
-        resource: "@AcmeProjectBundle/Resources/config/routing/project.yml"
-        prefix:   /
-
 Create a controller
 -------------------
 
@@ -153,12 +125,11 @@ Either you can do it in the ``config.yml`` in ``app/config``:
     sylius_resource:
         resources:
             acme_project.project:
-                driver: doctrine/orm
-                object_manager: default
-                templates: acme_project:Project
                 classes:
                     model: Acme\ProjectBundle\Entity\Project
                     controller: Acme\ProjectBundle\Controller\ProjectController
+                    form:
+                        default: Acme\ProjectBundle\Form\Type\ProjectType
 
 or you add the resource to the ``Configuration.php`` in ``ProjectBundle/DependencyInjection``:
 
@@ -204,3 +175,30 @@ or you add the resource to the ``Configuration.php`` in ``ProjectBundle/Dependen
 If you use the second option, the file ``ProjectBundle/DependencyInjection/AcmeProjectExtenstion.php`` has to extend
 ``SyliusResourceExtension``, otherwise the services won't work.
 
+Generate new routes
+-------------------
+
+Now generate all the routes you need for the new resource.
+
+.. code-block:: bash
+
+    app/console enhavo:generate:routing acme_project project
+
+If you want your resource to be sortable by the user, you can use the optional parameter "sorting" to additionally
+generate sorting behaviour. The value of the parameter is a property type integer in your resource entity to save the
+items position. In this example it is called ``position``.
+
+.. code-block:: bash
+
+    app/console enhavo:generate:routing acme_project project --sorting="position"
+
+Create a new file called ``project.yml`` in ``ProjectBundle/Resources/config/routing``.
+Copy the routes from the terminal into it.
+
+After you have done this, you have to tell the ``routing.yml`` in ``app/config`` where to find your new ``project.yml``
+
+.. code-block:: yml
+
+    acme_project_project:
+        resource: "@AcmeProjectBundle/Resources/config/routing/project.yml"
+        prefix:   /
