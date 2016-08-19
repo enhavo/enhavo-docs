@@ -27,7 +27,7 @@ Cookbook
   * :doc:`/cookbook/resource/add-new-resource`
   * :doc:`/cookbook/resource/dynamic-routing`
   * :doc:`/cookbook/resource/make-resource-sortable`
-  * :doc:`/cookbook/resource/add-media-file-to-resource.rst`
+  * :doc:`/cookbook/resource/add-media-file-to-resource`
 
 * **Contact Form**
 

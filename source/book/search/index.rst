@@ -2,8 +2,8 @@ Search
 ======
 
 .. toctree::
-:maxdepth: 2
+    :maxdepth: 2
 
-        installation
-        strategies
-        search engines
+    installation
+    strategies
+    search engines

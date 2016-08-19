@@ -2,6 +2,6 @@ Contributing
 ============
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    convention/index

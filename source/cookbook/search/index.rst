@@ -2,6 +2,6 @@ Resource
 ========
 
 .. toctree::
-:maxdepth: 2
+    :maxdepth: 2
 
-        add-search-for-entity
+    add-search-for-entity
