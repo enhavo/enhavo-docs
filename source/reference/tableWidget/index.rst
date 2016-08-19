@@ -12,7 +12,7 @@ Table Widget
     position-widget
     property-widget
     template-widget
-
+    picture-widget
 
 * :doc:`/reference/tableWidget/boolean-widget`
 
@@ -29,3 +29,5 @@ Table Widget
 * :doc:`/reference/tableWidget/property-widget`
 
 * :doc:`/reference/tableWidget/template-widget`
+
+* :doc:`/reference/tableWidget/picture-widget`
