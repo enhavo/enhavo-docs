@@ -32,6 +32,14 @@ Cookbook
   * :doc:`/cookbook/contactForm/add-contact-form`
   * :doc:`/cookbook/contactForm/add-fields-to-form`
 
+* **Workflow**
+
+  * :doc:`/cookbook/workflow/add-new-workflow`
+
+* **Search**
+
+  * :doc:`/cookbook/search/add-search-for-entity`
+
 * **Batch Actions**
 
   * :doc:`/cookbook/batchActions/add-batch-action`
