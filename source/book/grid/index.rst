@@ -5,5 +5,5 @@ GridBundle
     :maxdepth: 2
 
     introduction
-    use-content
+    use-grid
     rendering
