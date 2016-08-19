@@ -5,7 +5,7 @@ property
 
 **type**: `string`
 
-Define which property of the resource is used fot the widget. The resource should provide a getter method for certain property.
+Define which property of the resource is used for the widget. The resource has to provide a getter method for that property.
 
 .. code-block:: yaml
 

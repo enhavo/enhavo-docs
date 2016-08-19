@@ -9,6 +9,8 @@ Cookbook
     resource/index
     contactForm/index
     batchActions/index
+    button/index
+    block/index
     category/index
 
 * **Package**
