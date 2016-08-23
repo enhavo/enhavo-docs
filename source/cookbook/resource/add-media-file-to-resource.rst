@@ -164,7 +164,7 @@ Again in the resources form definition, we use the form type ``enhavo_files``. B
 
 .. code-block:: php
 
-    $builder->add('file', 'enhavo_files', array(
+    $builder->add('files', 'enhavo_files', array(
         'label' => 'form.label.file',
         'translation_domain' => 'AcmeMyResourceBundle',
         'multiple' => true
