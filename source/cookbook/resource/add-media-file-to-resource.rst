@@ -30,7 +30,7 @@ We also have to add the member variable as well as getter/setter to our Entity c
 
     use Enhavo\Bundle\MediaBundle\Model\FileInterface;
 
-    class MyResource
+    class MyResource implements ResourceInterface
     {
 
         ...
@@ -112,7 +112,7 @@ We also add the member variable as well as getter/setter to our Entity class.
 
     use Enhavo\Bundle\MediaBundle\Model\FileInterface;
 
-    class MyResource
+    class MyResource implements ResourceInterface
     {
 
         ...

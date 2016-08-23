@@ -5,9 +5,8 @@ You can easily add a new resource to the CMS by following these steps:
 
 1) Create an Entity and FormType
 2) Add resource to menu
-3) Create a controller
-4) Add configuration
-5) Generate new routes
+3) Add configuration
+4) Generate new routes
 
 
 As an example, we will be adding a resource called project.
@@ -94,23 +93,6 @@ First we add the new resource to the menu in ``app/config/enhavo.yml``
             translationDomain: ProjectBundle
             route: acme_project_project_index
             role: ROLE_ENHAVO_ACME_PROJECT_PROJECT_INDEX
-
-Create a controller
--------------------
-
-Add a new controller ``ProjectController`` for the resource in ``ProjectBundle/Controller``.
-The new controller extends the ``ResourceController`` from ``Enhavo\Bundle\AppBundle\Controller``
-
-.. code-block:: php
-
-    <?php
-
-    use Enhavo\Bundle\AppBundle\Controller\ResourceController;
-
-    class ProjectController extends ResourceController
-    {
-
-    }
 
 Add configuration
 -----------------
