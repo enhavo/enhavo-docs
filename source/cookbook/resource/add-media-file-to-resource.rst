@@ -30,7 +30,7 @@ We also have to add the member variable as well as getter/setter to our Entity c
 
     use Enhavo\Bundle\MediaBundle\Model\FileInterface;
 
-    class MyResource
+    class MyResource implements ResourceInterface
     {
 
         ...
@@ -112,7 +112,7 @@ We also add the member variable as well as getter/setter to our Entity class.
 
     use Enhavo\Bundle\MediaBundle\Model\FileInterface;
 
-    class MyResource
+    class MyResource implements ResourceInterface
     {
 
         ...
@@ -164,7 +164,7 @@ Again in the resources form definition, we use the form type ``enhavo_files``. B
 
 .. code-block:: php
 
-    $builder->add('file', 'enhavo_files', array(
+    $builder->add('files', 'enhavo_files', array(
         'label' => 'form.label.file',
         'translation_domain' => 'AcmeMyResourceBundle',
         'multiple' => true
