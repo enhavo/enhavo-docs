@@ -4,7 +4,7 @@ We implemented a short routing generator, which creates minimal CRUD
 routing definitions for your resource.
 
 ```bash
-app/console enhavo:generate:routing app resource [--sorting="property"]
+app/console make:enhavo:routing app resource [--sorting="property"]
 ```
 
 If the optional parameter `sorting` is present, the entity is considered

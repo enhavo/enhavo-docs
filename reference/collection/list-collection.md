@@ -1,4 +1,6 @@
-##  Sorting Routes
+## List collection
+
+###  Sorting
 
 A resource might be sortable, meaning it has an order which can be
 changed by the user. In this case, it needs two additional routes for
@@ -12,17 +14,17 @@ Note: If you changed the pagination value in the table route, you need
 to add the same value to the move_to_page route as well.
 
   -------------------------------- -------------------------------------------------
-  **Parameters**                   Description
+**Parameters**                   Description
 
-  **\_sylius.sortable_position**   Property of that model or row (int) which is used
-                                   for sorting
+**\_sylius.sortable_position**   Property of that model or row (int) which is used
+for sorting
 
-  **\_sylius.paginate**            If set in table route, must be set to the same
-                                   value here
+**\_sylius.paginate**            If set in table route, must be set to the same
+value here
 
-  **viewer.sorting**               **desc** (default) means higher values come
-                                   before lower values, with 0 being the last
-                                   element; **asc** is the other way around
+**viewer.sorting**               **desc** (default) means higher values come
+before lower values, with 0 being the last
+element; **asc** is the other way around
   -------------------------------- -------------------------------------------------
 
 ``` yaml
